@@ -1,6 +1,7 @@
 package advent2021;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 public class FileReader {
 
-	public ArrayList<Integer> readFileAsIntegerArrayList( String fileName ) throws IOException {
+	public ArrayList<Integer> readFileAsIntegerArrayList( File fileName ) throws IOException {
 		ArrayList<Integer> input = new ArrayList<>();
 		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( fileName ) );
 		String line;
@@ -19,7 +20,7 @@ public class FileReader {
 		return input;
 	}
 
-	public Map<String, ArrayList<Integer>> readFileAsMapOfStringArrayList( String fileName )
+	public Map<String, ArrayList<Integer>> readFileAsMapOfStringArrayList( File fileName )
 			throws IOException {
 		Map<String, ArrayList<Integer>> input = new HashMap<>();
 		ArrayList<Integer> commandForward = new ArrayList<>();

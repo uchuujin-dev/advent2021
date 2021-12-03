@@ -1,5 +1,6 @@
 package advent2021.day01;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import advent2021.FileReader;
 public class Day01 {
 
 	FileLocation file = new FileLocation();
-	String filePath = file.getFileLocation( "day01" );
+	File filePath = file.readFileFromClasspath( "day01" );
 
 	public int countDepthIncrease( ArrayList<Integer> depthsArray ) {
 		int count = 0;
@@ -36,7 +37,7 @@ public class Day01 {
 
 	public void day01Solutions() {
 		final FileReader reader = new FileReader();
-		file.getFileLocation( "day01" );
+
 		ArrayList<Integer> depths;
 		try {
 			depths = reader.readFileAsIntegerArrayList( filePath );

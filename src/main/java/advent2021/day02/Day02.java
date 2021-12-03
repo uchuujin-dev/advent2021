@@ -1,6 +1,7 @@
 package advent2021.day02;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,7 +12,7 @@ import advent2021.FileReader;
 public class Day02 {
 
 	FileLocation file = new FileLocation();
-	String filePath = file.getFileLocation( "day02" );
+	File filePath = file.readFileFromClasspath( "day02" );
 
 	public Integer calculatePosition( Map<String, ArrayList<Integer>> input ) {
 		int forward = 0;
@@ -42,7 +43,7 @@ public class Day02 {
 		return forward * ( down - up );
 	}
 
-	public int calculateAim( String fileName ) throws IOException {
+	public int calculateAim( File fileName ) throws IOException {
 		int pos;
 		int aim = 0;
 		int depth = 0;
