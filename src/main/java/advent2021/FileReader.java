@@ -154,4 +154,57 @@ public class FileReader {
 		return input;
 	}
 
+	// day 04
+	public ArrayList<Integer> readBingoNumbers( File fileName ) throws IOException {
+		ArrayList<Integer> bingoNumbers = new ArrayList<>();
+		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( fileName ) );
+		String line = bufferedReader.readLine();
+
+		for ( String field : line.split( "," ) )
+			bingoNumbers.add( Integer.parseInt( field ) );
+
+		bufferedReader.close();
+		return bingoNumbers;
+	}
+
+	public HashMap<Integer, int[][]> readMatrix( File filePath ) throws IOException {
+
+		BufferedReader reader = new BufferedReader( new java.io.FileReader( filePath ) );
+		int lines = 0;
+		while ( reader.readLine() != null )
+			lines++;
+		reader.close();
+
+		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( filePath ) );
+		bufferedReader.readLine();
+		bufferedReader.readLine();
+
+		int rowCount = 0;
+		int boardCount = 0;
+
+		HashMap<Integer, int[][]> bingoBoards = new HashMap<>();
+
+		for ( int i = 0; i < ( lines - 2 ); i += 6 ) {
+
+			int[][] board = new int[5][5];
+			for ( int j = 0; j < 5; j++ ) {
+				String[] line;
+				line = bufferedReader.readLine().trim().split( "\\s+" );
+				rowCount++;
+
+				for ( int k = 0; k < 5; k++ ) {
+					board[j][k] = Integer.parseInt( line[k] );
+				}
+
+				if ( rowCount == 5 ) {
+					bufferedReader.readLine();
+					rowCount = 0;
+					bingoBoards.put( boardCount, board );
+
+					boardCount++;
+				}
+			}
+		}
+		return bingoBoards;
+	}
 }
