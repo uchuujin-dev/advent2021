@@ -207,4 +207,33 @@ public class FileReader {
 		}
 		return bingoBoards;
 	}
+
+	// day 05
+
+	public ArrayList<String[][]> readInCoords( File fileName ) throws IOException {
+		BufferedReader reader = new BufferedReader( new java.io.FileReader( fileName ) );
+		int lines = 0;
+		while ( reader.readLine() != null )
+			lines++;
+		reader.close();
+
+		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( fileName ) );
+
+		ArrayList<String[][]> coords = new ArrayList<>();
+
+		for ( int i = 0; i < lines; i++ ) {
+			String line;
+			line = bufferedReader.readLine(); // "0,9 -> 5,9"
+			String[] a = line.split( " -> " );
+			String[][] b = new String[2][2];
+			for ( int j = 0; j < a.length; j++ ) {
+				b[j] = a[j].split( "," );
+			}
+			coords.add( b );
+
+		}
+
+		return coords;
+	}
 }
+
