@@ -14,42 +14,27 @@ public class Day04 {
 	File filePath = file.readFileFromClasspath( "day04" );
 
 	public int[] findWinner( ArrayList<Integer> bingoNums, HashMap<Integer, int[][]> bingoBoards ) {
-
 		for ( int bingoNum : bingoNums ) {
-
 			for ( int board = 0; board < bingoBoards.size(); board++ ) {
-
 				for ( int row = 0; row < 5; row++ ) {
 					for ( int num = 0; num < 5; num++ ) {
 						if ( bingoBoards.get( board )[row][num] == bingoNum ) {
 							bingoBoards.get( board )[row][num] = 1000;
-
 							if ( bingo( bingoBoards.get( board ) ) ) {
-								int[] info = { board, bingoNum };
-								return info;
+								return new int[] { board, bingoNum };
 							}
 						}
-
 					}
-
 				}
-
 			}
-
 		}
-		int[] empty = {};
-		return empty;
-
+		return new int[] {};
 	}
 
 	public int[] findLoser( ArrayList<Integer> bingoNums, HashMap<Integer, int[][]> bingoBoards ) {
-
 		HashMap<Integer, int[][]> winners = new HashMap<>();
-
 		for ( int bingoNum : bingoNums ) {
-
 			for ( int board = 0; board < bingoBoards.size(); board++ ) {
-
 				for ( int row = 0; row < 5; row++ ) {
 					for ( int num = 0; num < 5; num++ ) {
 						if ( bingoBoards.get( board )[row][num] == bingoNum ) {
@@ -57,8 +42,7 @@ public class Day04 {
 							if ( bingo( bingoBoards.get( board ) ) ) {
 								winners.put( board, bingoBoards.get( board ) );
 								if ( winners.size() == bingoBoards.size() ) {
-									int[] info = { board, bingoNum };
-									return info;
+									return new int[] { board, bingoNum };
 								}
 							}
 						}
@@ -66,8 +50,7 @@ public class Day04 {
 				}
 			}
 		}
-		int[] empty = {};
-		return empty;
+		return new int[] {};
 	}
 
 	public boolean bingo( int[][] board ) {
@@ -78,7 +61,6 @@ public class Day04 {
 			if ( Arrays.toString( board[row] ).equals( Arrays.toString( bingo ) ) ) {
 				return true;
 			}
-
 			for ( int col = 0; col < 5; col++ ) {
 				if ( board[0][col] == 1000 && board[1][col] == 1000 && board[2][col] == 1000 && board[3][col] == 1000 && board[4][col] == 1000 ) {
 					return true;
@@ -100,9 +82,7 @@ public class Day04 {
 				if ( board[row][num] != 1000 ) {
 					sum += board[row][num];
 				}
-
 			}
-
 		}
 		score = sum * winningNum;
 		return score;

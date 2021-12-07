@@ -204,7 +204,6 @@ public class Day05 {
 					dangerPoints++;
 				}
 			}
-
 		}
 		return dangerPoints;
 	}

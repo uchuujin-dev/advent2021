@@ -5,6 +5,8 @@ import advent2021.day02.Day02;
 import advent2021.day03.Day03;
 import advent2021.day04.Day04;
 import advent2021.day05.Day05;
+import advent2021.day06.Day06;
+import advent2021.day07.Day07;
 
 public class Main {
 
@@ -13,6 +15,8 @@ public class Main {
 	public static final Day03 day03 = new Day03();
 	public static final Day04 day04 = new Day04();
 	public static final Day05 day05 = new Day05();
+	public static final Day06 day06 = new Day06();
+	public static final Day07 day07 = new Day07();
 
 	public static void main( String[] args ) {
 
@@ -24,7 +28,9 @@ public class Main {
 
 		//		day04.day04Solutions();
 
-		day05.day05Solutions();
+		//		day05.day05Solutions();
+		day06.day06Solutions();
+		//		day07.day07Solutions();
 
 	}
 

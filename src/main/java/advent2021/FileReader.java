@@ -3,6 +3,8 @@ package advent2021;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -235,5 +237,20 @@ public class FileReader {
 
 		return coords;
 	}
+
+	// Day 06 + 07
+
+	public ArrayList<Integer> readInIntegerList( String fileName ) throws IOException {
+		ArrayList<Integer> horizontalPositions = new ArrayList<>();
+		String line = Files.readString( Path.of( "src", "main", "resources", fileName ) );
+		String[] list = line.split( "," );
+
+		for ( String num : list ) {
+			horizontalPositions.add( Integer.parseInt( num ) );
+		}
+
+		return horizontalPositions;
+	}
+
 }
 
