@@ -252,5 +252,20 @@ public class FileReader {
 		return horizontalPositions;
 	}
 
+	// Day 08
+	public ArrayList<String> readInSignalPatterns( File fileName ) throws IOException {
+		ArrayList<String> signalPatterns = new ArrayList<>();
+		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( fileName ) );
+		String line;
+
+		while ( ( line = bufferedReader.readLine() ) != null ) {
+			signalPatterns.add( line );
+		}
+
+		return signalPatterns;
+	}
+
+	// Day 09
+
 }
 
