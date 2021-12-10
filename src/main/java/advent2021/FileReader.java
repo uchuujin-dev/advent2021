@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.common.collect.Table;
+import com.google.common.collect.TreeBasedTable;
+
 public class FileReader {
 
 	// Day01 file reader
@@ -267,5 +270,26 @@ public class FileReader {
 
 	// Day 09
 
+	public Table<Integer, Integer, Integer> readInTableOfIntegers( File fileName )
+			throws IOException {
+		BufferedReader reader = new BufferedReader( new java.io.FileReader( fileName ) );
+		int rows = 0;
+		while ( reader.readLine() != null )
+			rows++;
+		reader.close();
+
+		Table<Integer, Integer, Integer> floorMap = TreeBasedTable.create();
+		BufferedReader bufferedReader = new BufferedReader( new java.io.FileReader( fileName ) );
+
+		for ( int row = 0; row < rows; row++ ) {
+			String line;
+			line = bufferedReader.readLine();
+			char[] lineNums = line.toCharArray();
+			for ( int col = 0; col < lineNums.length; col++ ) {
+				floorMap.put( row, col, Character.getNumericValue( lineNums[col] ) );
+			}
+		}
+		return floorMap;
+	}
 }
 

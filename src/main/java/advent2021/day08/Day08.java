@@ -71,10 +71,9 @@ public class Day08 {
 				}
 			}
 
-			// find the char in 8 but not 9
 
 			// find 0 and 2
-			// if the string contains the character from 8 and not 9, and length is 6 = 0
+			// if the string contains the character from 8 and not 9, and length is 6 = 0, and contains characters from 1
 			// otherwise length is 5 then its 2
 			for ( String s : value ) {
 				String inEightButNotNine = uniqueCharacter( decipheredPatterns.get( 8 ),
@@ -86,8 +85,6 @@ public class Day08 {
 					decipheredPatterns.put( 2, s );
 				}
 			}
-
-			//
 
 			// find 6
 			// if the string contains the character from 8 but not 0, and length is 6
